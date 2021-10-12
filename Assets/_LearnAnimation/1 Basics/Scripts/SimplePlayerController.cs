@@ -4,6 +4,7 @@ using UnityEngine;
 /// Player を操作するコンポーネント
 /// WASD で操作する。
 /// </summary>
+[RequireComponent(typeof(Rigidbody))]
 public class SimplePlayerController : MonoBehaviour
 {
     [SerializeField] float _movePower = 5f;
