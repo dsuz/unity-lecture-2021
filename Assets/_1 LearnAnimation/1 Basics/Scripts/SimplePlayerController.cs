@@ -1,15 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// Player ‚ğ‘€ì‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg
-/// WASD ‚Å‘€ì‚·‚éB
+/// Player ã‚’æ“ä½œã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+/// WASD ã§æ“ä½œã™ã‚‹ã€‚
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class SimplePlayerController : MonoBehaviour
 {
     [SerializeField] float _movePower = 5f;
     Rigidbody _rb = default;
-    /// <summary>“ü—Í‚³‚ê‚½•ûŒü</summary>
+    /// <summary>å…¥åŠ›ã•ã‚ŒãŸæ–¹å‘</summary>
     Vector3 _dir;
 
     void Start()
@@ -19,16 +19,16 @@ public class SimplePlayerController : MonoBehaviour
 
     void Update()
     {
-        // “ü—Í‚ğó‚¯•t‚¯‚é
+        // å…¥åŠ›ã‚’å—ã‘ä»˜ã‘ã‚‹
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        // “ü—Í‚³‚ê‚½•ûŒü‚ğuƒJƒƒ‰‚ğŠî€‚Æ‚µ‚½ XZ •½–Êã‚ÌƒxƒNƒgƒ‹v‚É•ÏŠ·‚·‚é
+        // å…¥åŠ›ã•ã‚ŒãŸæ–¹å‘ã‚’ã€Œã‚«ãƒ¡ãƒ©ã‚’åŸºæº–ã¨ã—ãŸ XZ å¹³é¢ä¸Šã®ãƒ™ã‚¯ãƒˆãƒ«ã€ã«å¤‰æ›ã™ã‚‹
         _dir = new Vector3(h, 0, v);
         _dir = Camera.main.transform.TransformDirection(_dir);
         _dir.y = 0;
 
-        // “®‚¢‚Ä‚¢‚é•ûŒü‚ğŒü‚­
+        // å‹•ã„ã¦ã„ã‚‹æ–¹å‘ã‚’å‘ã
         Vector3 dir = _rb.velocity;
         dir.y = 0;
 

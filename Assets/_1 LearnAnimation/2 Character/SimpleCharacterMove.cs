@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ƒLƒƒƒ‰ƒNƒ^[‚ğ‘€ì‚µ‚ÄƒWƒƒƒ“ƒv‚³‚¹‚é‹@”\‚ğ’ñ‹Ÿ‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg
-/// WASD ‚ÅˆÚ“®‚µASpace ‚ÅƒWƒƒƒ“ƒv‚·‚éiInput Manager g—pj
-/// ‘«‰º‚ÉƒgƒŠƒK[‚ğİ’u‚·‚é‚±‚ÆB‘«‰º‚ÌƒgƒŠƒK[‚ªÚG‚µ‚Ä‚¢‚½‚çuÚ’n‚µ‚Ä‚¢‚év‚Æ”»’è‚µAƒWƒƒƒ“ƒv‚Å‚«‚éB
+/// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚’æ“ä½œã—ã¦ã‚¸ãƒ£ãƒ³ãƒ—ã•ã›ã‚‹æ©Ÿèƒ½ã‚’æä¾›ã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+/// WASD ã§ç§»å‹•ã—ã€Space ã§ã‚¸ãƒ£ãƒ³ãƒ—ã™ã‚‹ï¼ˆInput Manager ä½¿ç”¨ï¼‰
+/// è¶³ä¸‹ã«ãƒˆãƒªã‚¬ãƒ¼ã‚’è¨­ç½®ã™ã‚‹ã“ã¨ã€‚è¶³ä¸‹ã®ãƒˆãƒªã‚¬ãƒ¼ãŒæ¥è§¦ã—ã¦ã„ãŸã‚‰ã€Œæ¥åœ°ã—ã¦ã„ã‚‹ã€ã¨åˆ¤å®šã—ã€ã‚¸ãƒ£ãƒ³ãƒ—ã§ãã‚‹ã€‚
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class SimpleCharacterMove : MonoBehaviour
@@ -12,7 +12,7 @@ public class SimpleCharacterMove : MonoBehaviour
     [SerializeField] float _jumpPower = 5f;
     Rigidbody _rb = default;
     Animator _anim = default;
-    /// <summary>Ú’nƒtƒ‰ƒO</summary>
+    /// <summary>æ¥åœ°ãƒ•ãƒ©ã‚°</summary>
     bool _isGrounded;
 
     void Start()
@@ -23,27 +23,27 @@ public class SimpleCharacterMove : MonoBehaviour
 
     void Update()
     {
-        // “ü—Í‚ğó‚¯•t‚¯‚é
+        // å…¥åŠ›ã‚’å—ã‘ä»˜ã‘ã‚‹
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        // “ü—Í‚³‚ê‚½•ûŒü‚ğuƒJƒƒ‰‚ğŠî€‚Æ‚µ‚½ XZ •½–Êã‚ÌƒxƒNƒgƒ‹v‚É•ÏŠ·‚·‚é
+        // å…¥åŠ›ã•ã‚ŒãŸæ–¹å‘ã‚’ã€Œã‚«ãƒ¡ãƒ©ã‚’åŸºæº–ã¨ã—ãŸ XZ å¹³é¢ä¸Šã®ãƒ™ã‚¯ãƒˆãƒ«ã€ã«å¤‰æ›ã™ã‚‹
         Vector3 dir = new Vector3(h, 0, v);
         dir = Camera.main.transform.TransformDirection(dir);
         dir.y = 0;
         
-        // ƒLƒƒƒ‰ƒNƒ^[‚ğu“ü—Í‚³‚ê‚½•ûŒüv‚ÉŒü‚¯‚é
+        // ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚’ã€Œå…¥åŠ›ã•ã‚ŒãŸæ–¹å‘ã€ã«å‘ã‘ã‚‹
         if (dir != Vector3.zero)
         {
             this.transform.forward = dir;
         }
 
-        // Y ²•ûŒü‚Ì‘¬“x‚ğ•Û‚¿‚È‚ª‚çA‘¬“xƒxƒNƒgƒ‹‚ğ‹‚ß‚ÄƒZƒbƒg‚·‚é
+        // Y è»¸æ–¹å‘ã®é€Ÿåº¦ã‚’ä¿ã¡ãªãŒã‚‰ã€é€Ÿåº¦ãƒ™ã‚¯ãƒˆãƒ«ã‚’æ±‚ã‚ã¦ã‚»ãƒƒãƒˆã™ã‚‹
         Vector3 velocity = dir.normalized * _moveSpeed;
         velocity.y = _rb.velocity.y;
         _rb.velocity = velocity;
 
-        // ƒWƒƒƒ“ƒvˆ—
+        // ã‚¸ãƒ£ãƒ³ãƒ—å‡¦ç†
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
             _rb.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
@@ -52,7 +52,7 @@ public class SimpleCharacterMove : MonoBehaviour
 
     void LateUpdate()
     {
-        // ƒAƒjƒ[ƒVƒ‡ƒ“‚Ìˆ—
+        // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å‡¦ç†
         if (_anim)
         {
             _anim.SetBool("IsGrounded", _isGrounded);

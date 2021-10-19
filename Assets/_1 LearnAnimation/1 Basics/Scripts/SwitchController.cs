@@ -1,15 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// ƒXƒCƒbƒ`‚Ì‹@”\‚ğ’ñ‹Ÿ‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg
-/// Player ƒ^ƒO‚ª‚Â‚¢‚½ƒIƒuƒWƒFƒNƒg‚ªƒgƒŠƒK[‚ÉN“ü‚·‚é‚ÆA“o˜^‚µ‚½ UnityEvent ‚ğˆê“x‚¾‚¯Às‚·‚éB
+/// ã‚¹ã‚¤ãƒƒãƒã®æ©Ÿèƒ½ã‚’æä¾›ã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+/// Player ã‚¿ã‚°ãŒã¤ã„ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒãƒˆãƒªã‚¬ãƒ¼ã«ä¾µå…¥ã™ã‚‹ã¨ã€ç™»éŒ²ã—ãŸ UnityEvent ã‚’ä¸€åº¦ã ã‘å®Ÿè¡Œã™ã‚‹ã€‚
 /// </summary>
 public class SwitchController : MonoBehaviour
 {
-    /// <summary>Player ‚ªN“ü‚µ‚½‚ÉÀs‚·‚é‚±‚Æ</summary>
+    /// <summary>Player ãŒä¾µå…¥ã—ãŸæ™‚ã«å®Ÿè¡Œã™ã‚‹ã“ã¨</summary>
     [SerializeField] UnityEvent _onEnter = default;
-    /// <summary>ˆê“x“®ì‚µ‚½‚©‚Ç‚¤‚©</summary>
+    /// <summary>ä¸€åº¦å‹•ä½œã—ãŸã‹ã©ã†ã‹</summary>
     bool _isFinished = false;
 
     void OnTriggerEnter(Collider other)
